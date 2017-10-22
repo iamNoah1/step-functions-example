@@ -1,0 +1,16 @@
+---
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Hello World API
+paths:
+  "/helloStep":
+    get:
+      description: Returns a greeting to the user!
+      responses:
+        '200':
+          description: Returns the greeting.
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
