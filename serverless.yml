@@ -57,17 +57,23 @@ provider:
 functions:
   hello:
     handler: handler.hello
+  ciao:
+    handler: handler.ciao
 
 stepFunctions:
   stateMachines:
     hellostepfunc1:
       definition:
         Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
-        StartAt: HelloWorld1
+        StartAt: HelloWorld
         States:
-          HelloWorld1:
+          HelloWorld:
             Type: Task
             Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-hello"
+            Next: CiaoWorld
+          CiaoWorld:
+            Type: Task
+            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-ciao"
             End: true
 
 #    The following are a few example events you can configure
