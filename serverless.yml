@@ -63,6 +63,7 @@ functions:
 stepFunctions:
   stateMachines:
     hellostepfunc1:
+      name: 'hello'
       definition:
         Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
         StartAt: HelloWorld
